@@ -1,0 +1,31 @@
+<mat-card>
+
+  <mat-toolbar color="primary">Detalhes do Alimentos</mat-toolbar>
+
+  <mat-card-content>
+
+    <form [formGroup]="form" class="min-widht">
+      <mat-form-field class="full-widht">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option value="" disabled>Selecione</mat-option>
+          <mat-option value="SORVETE">SORVETE</mat-option>
+          <mat-option value="MILKSHAKE">MILKSHAKE</mat-option>
+          <mat-option value="REFRI">REFRI</mat-option>
+          <mat-option value="CERVVEJA">CERVEJA</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-widht">
+        <input matInput placeholder="Valor" formControlName="valor">
+      </mat-form-field>
+    </form>
+
+  </mat-card-content>
+
+  <mat-card-actions class="spacing">
+    <button mat-button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+    <button mat-button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+
+</mat-card>
