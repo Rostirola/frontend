@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Alimento} from "../model/alimento";
 import {HttpClient} from "@angular/common/http";
-import { first } from "rxjs";
+import {first} from "rxjs";
 import {AlimentoPage} from "../model/alimento-page";
 
 @Injectable({
@@ -9,7 +9,7 @@ import {AlimentoPage} from "../model/alimento-page";
 })
 export class AlimentosService {
 
-  private readonly API = '/alimentos'
+  private readonly API = '/Alimentos'
 
   constructor(private httpClient: HttpClient) {
   }

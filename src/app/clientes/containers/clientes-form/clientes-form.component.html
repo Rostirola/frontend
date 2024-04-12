@@ -1,0 +1,28 @@
+<mat-card>
+
+  <mat-toolbar color="primary">Detalhes do Cliente</mat-toolbar>
+
+  <mat-card-content>
+
+    <form [formGroup]="form" class="min-widht">
+      <mat-form-field class="full-widht">
+        <input matInput placeholder="Nome" formControlName="nome">
+      </mat-form-field>
+
+      <mat-form-field class="full-widht">
+        <input matInput placeholder="Cpf" formControlName="cpf">
+      </mat-form-field>
+
+      <mat-form-field class="full-widht">
+        <input matInput placeholder="status" formControlName="status">
+      </mat-form-field>
+    </form>
+
+  </mat-card-content>
+
+  <mat-card-actions class="spacing">
+    <button mat-button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+    <button mat-button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+
+</mat-card>

@@ -6,9 +6,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {ErrorDialogComponent} from "../../../shared/components/error-dialog/error-dialog.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {
-  ConfirmationDialogComponent
-} from "../../../shared/components/confirmation-dialog/confirmation-dialog.component";
 import {AlimentoPage} from "../../model/alimento-page";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatCardModule} from "@angular/material/card";
@@ -75,27 +72,5 @@ export class AlimentosComponent {
 
   onEdit(alimento: Alimento) {
     this.router.navigate(['edit', alimento.id], {relativeTo: this.route});
-  }
-
-  onRemove(alimento: Alimento) {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: 'Tem certeza que deseja remover esse alimento?',
-    });
-
-    dialogRef.afterClosed().subscribe((result: boolean) => {
-      if (result) {
-        this.alimentosService.remove(alimento.id).subscribe(
-          () => {
-            this.refresh();
-            this.snackBar.open('Alimento removido com sucesso!', 'X', {
-              duration: 5000,
-              verticalPosition: 'top',
-              horizontalPosition: 'center'
-            });
-          },
-          () => this.onError('Erro ao tentar remover alimento.')
-        );
-      }
-    });
   }
 }

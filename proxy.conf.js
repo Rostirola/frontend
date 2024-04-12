@@ -1,6 +1,6 @@
 const ProxyConf = [
   {
-    context: ['/alimentos'],
+    context: ['/Alimentos', '/Pedidos', '/Usuarios', '/Clientes'],
     target: 'http://localhost:8082/',
     secure: false,
     logLevel: 'debug'

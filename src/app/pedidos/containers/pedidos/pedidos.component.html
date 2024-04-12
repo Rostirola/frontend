@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-toolbar color="primary">Pedidos</mat-toolbar>
+
+  @if (pedidos$ | async; as pedidos) {
+    <div class="colum-flex mat-elevation-z8">
+      <app-pedidos-list
+        [pedidos]="pedidos.content"
+        (add)="onAdd()"
+        (edit)="onEdit($event)">
+      </app-pedidos-list>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10]"
+        showFirstLastButtons
+        [pageIndex]="pageIndex"
+        [pageSize]="pageSize"
+        [length]="pedidos.totalElements"
+        (page)="refresh($event)"
+        aria-label="Selecione a pagina de pedidos"
+      >
+      </mat-paginator>
+    </div>
+  } @else {
+    <div class="loading-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+</mat-card>

@@ -1,0 +1,13 @@
+.full-widht {
+  width: 100%;
+}
+
+.min-widht {
+  width: 100%;
+  min-width: 150px;
+}
+
+.spacing {
+  display: flex;
+  justify-content: space-between;
+}

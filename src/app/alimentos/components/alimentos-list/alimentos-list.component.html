@@ -1,27 +1,34 @@
-<mat-table  [dataSource]="alimentos">
+<mat-table [dataSource]="alimentos">
 
   <!-- id Column -->
   <ng-container matColumnDef="id">
-    <mat-header-cell  *matHeaderCellDef> Número</mat-header-cell>
-    <mat-cell  *matCellDef="let alimento"> {{ alimento.id }}</mat-cell>
+    <mat-header-cell *matHeaderCellDef>Número</mat-header-cell>
+    <mat-cell *matCellDef="let alimento">{{ alimento.id }}</mat-cell>
   </ng-container>
 
   <!-- tipo Column -->
   <ng-container matColumnDef="tipo">
-    <mat-header-cell  *matHeaderCellDef> Tipo</mat-header-cell>
-    <mat-cell  *matCellDef="let alimento"> {{ alimento.tipo }}</mat-cell>
+    <mat-header-cell *matHeaderCellDef>Tipo</mat-header-cell>
+    <mat-cell *matCellDef="let alimento">{{ alimento.tipo }}</mat-cell>
+  </ng-container>
+
+  <!-- tipo Column -->
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <mat-cell *matCellDef="let alimento">{{ alimento.nome }}</mat-cell>
   </ng-container>
 
   <!-- valor Column -->
   <ng-container matColumnDef="valor">
-    <mat-header-cell  *matHeaderCellDef> Valor</mat-header-cell>
-    <mat-cell  *matCellDef="let alimento"> {{ alimento.valor }}</mat-cell>
+    <mat-header-cell *matHeaderCellDef>Valor</mat-header-cell>
+    <mat-cell *matCellDef="let alimento">{{ alimento.valor }}</mat-cell>
   </ng-container>
 
   <!-- acoes Column -->
   <ng-container matColumnDef="acoes">
     <mat-header-cell *matHeaderCellDef class="action-column">
-      <button mat-mini-fab color="accent" aria-label="Adicionar um alimento" (click)="onAdd()" class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Adicionar um alimento" (click)="onAdd()"
+              class="action-column-header">
         <mat-icon>add</mat-icon>
       </button>
     </mat-header-cell>
@@ -30,13 +37,9 @@
       <button mat-icon-button color="primary" aria-label="Editar um alimento" (click)="onEdit(alimento)">
         <mat-icon>edit</mat-icon>
       </button>
-
-      <button mat-icon-button color="warn" aria-label="Remover um alimento" (click)="onDelete(alimento)">
-        <mat-icon>delete</mat-icon>
-      </button>
     </mat-cell>
   </ng-container>
 
-  <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>

@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {AlimentosService} from "../services/alimentos.service";
 import {Injectable} from "@angular/core";
 import {Observable, of} from "rxjs";
@@ -9,12 +9,13 @@ import {Alimento} from "../model/alimento";
 })
 export class AlimentoResolver {
 
-  constructor( private service: AlimentosService ) { }
+  constructor(private service: AlimentosService) {
+  }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Alimento> {
     if (route.params && route.params['id']) {
       return this.service.loadById(route.params['id']);
     }
-    return of({ id: 0, tipo: '', valor: 0});
+    return of({id: 0, tipo: '', nome: '', valor: 0});
   }
 }
